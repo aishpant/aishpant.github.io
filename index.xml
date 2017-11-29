@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>my blog</title>
+    <title>Aishwarya Pant</title>
     <link>https://aishpant.github.io/</link>
-    <description>Recent content on my blog</description>
+    <description>Recent content on Aishwarya Pant</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Nov 2017 12:22:51 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 27 Nov 2017 12:03:06 +0530</lastBuildDate>
     
 	<atom:link href="https://aishpant.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What have I been doing for Outreachy?</title>
+      <link>https://aishpant.github.io/post/my-first-post/</link>
+      <pubDate>Mon, 27 Nov 2017 12:03:06 +0530</pubDate>
+      
+      <guid>https://aishpant.github.io/post/my-first-post/</guid>
+      <description>This is my last week at @Flipkart! Thursday- November 30th will be my last day of work, after which I go on a 4-month sabbatical. I will have to return all my IT assets including my beloved MacBook Pro :-(
+Back to the Outreachy excitement! There are a lot of things I want to get done before the internship officialy starts on the December 5. I have started to maintain a journal of what I am going to be working on every day.</description>
+    </item>
     
     <item>
       <title>About</title>
@@ -17,16 +27,7 @@
       <pubDate>Fri, 24 Nov 2017 12:22:51 +0530</pubDate>
       
       <guid>https://aishpant.github.io/about/</guid>
-      <description>Aishwarya Pant</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://aishpant.github.io/post/my-first-post/</link>
-      <pubDate>Fri, 24 Nov 2017 12:03:06 +0530</pubDate>
-      
-      <guid>https://aishpant.github.io/post/my-first-post/</guid>
-      <description> Welcome to my blog! </description>
+      <description>I am a Software Engineer at @Flipkart. Currently, I am on a 4-month sabbatical to work on an internship with Outreachy.</description>
     </item>
     
   </channel>
