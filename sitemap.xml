@@ -3,18 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://aishpant.github.io/2017/11/what-have-i-been-doing-for-outreachy/</loc>
+    <loc>https://aishpant.github.io/</loc>
+    <lastmod>2017-12-25T02:29:22+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/blog/</loc>
+    <lastmod>2017-12-25T02:29:22+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/blog/isaac-asimov/</loc>
+    <lastmod>2017-12-25T02:29:22+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/blog/three-body-problem-review/</loc>
+    <lastmod>2017-12-25T02:17:46+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/blog/what-have-i-been-doing-for-outreachy/</loc>
     <lastmod>2017-11-27T12:03:06+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://aishpant.github.io/about/</loc>
-    <lastmod>2017-11-24T12:22:51+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://aishpant.github.io/</loc>
-    <lastmod>2017-11-27T12:03:06+05:30</lastmod>
+    <loc>https://aishpant.github.io/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/tags/book-review/</loc>
+    <lastmod>2017-12-25T02:29:22+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/tags/isaac-asimov/</loc>
+    <lastmod>2017-12-25T02:29:22+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -25,14 +60,19 @@
   </url>
   
   <url>
-    <loc>https://aishpant.github.io/post/</loc>
-    <lastmod>2017-11-27T12:03:06+05:30</lastmod>
+    <loc>https://aishpant.github.io/page/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/tags/science-fiction/</loc>
+    <lastmod>2017-12-25T02:17:46+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aishpant.github.io/tags/</loc>
-    <lastmod>2017-11-27T12:03:06+05:30</lastmod>
+    <lastmod>2017-12-25T02:29:22+05:30</lastmod>
     <priority>0</priority>
   </url>
   

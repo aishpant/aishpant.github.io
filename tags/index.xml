@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Aishwarya Pant</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Nov 2017 12:03:06 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 25 Dec 2017 02:29:22 +0530</lastBuildDate>
     
 	<atom:link href="https://aishpant.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Book review</title>
+      <link>https://aishpant.github.io/tags/book-review/</link>
+      <pubDate>Mon, 25 Dec 2017 02:29:22 +0530</pubDate>
+      
+      <guid>https://aishpant.github.io/tags/book-review/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Isaac asimov</title>
+      <link>https://aishpant.github.io/tags/isaac-asimov/</link>
+      <pubDate>Mon, 25 Dec 2017 02:29:22 +0530</pubDate>
+      
+      <guid>https://aishpant.github.io/tags/isaac-asimov/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Outreachy</title>
@@ -17,6 +35,15 @@
       <pubDate>Mon, 27 Nov 2017 12:03:06 +0530</pubDate>
       
       <guid>https://aishpant.github.io/tags/outreachy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Science fiction</title>
+      <link>https://aishpant.github.io/tags/science-fiction/</link>
+      <pubDate>Mon, 25 Dec 2017 02:17:46 +0530</pubDate>
+      
+      <guid>https://aishpant.github.io/tags/science-fiction/</guid>
       <description></description>
     </item>
     

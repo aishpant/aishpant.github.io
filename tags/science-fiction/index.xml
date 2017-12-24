@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Science fiction on Aishwarya Pant</title>
+    <link>https://aishpant.github.io/tags/science-fiction/</link>
+    <description>Recent content in Science fiction on Aishwarya Pant</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Dec 2017 02:17:46 +0530</lastBuildDate>
+    
+	<atom:link href="https://aishpant.github.io/tags/science-fiction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Book Review : Three Body Problem</title>
+      <link>https://aishpant.github.io/blog/three-body-problem-review/</link>
+      <pubDate>Mon, 25 Dec 2017 02:17:46 +0530</pubDate>
+      
+      <guid>https://aishpant.github.io/blog/three-body-problem-review/</guid>
+      <description>TL;DR, 3.5 out of 5 stars
+I really really wanted to like The Three Body Problem a lot more because of the numerous positive reviews I&amp;rsquo;ve been hearing. I thought it was very interesting (Gobbled it up in three days straight!). It was full of great ideas and very imaginative. The parts in which we enter the game simulation were so fun to read. It was unfortunate when the game came abruptly to an end.</description>
+    </item>
+    
+  </channel>
+</rss>
