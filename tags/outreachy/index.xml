@@ -6,19 +6,18 @@
     <description>Recent content in Outreachy on Aishwarya Pant</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Nov 2017 12:03:06 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 25 Dec 2017 12:06:24 +0530</lastBuildDate>
     
 	<atom:link href="https://aishpant.github.io/tags/outreachy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>What have I been doing for Outreachy?</title>
-      <link>https://aishpant.github.io/blog/what-have-i-been-doing-for-outreachy/</link>
-      <pubDate>Mon, 27 Nov 2017 12:03:06 +0530</pubDate>
+      <title>You should apply for Outreachy!</title>
+      <link>https://aishpant.github.io/blog/start-outreachy/</link>
+      <pubDate>Mon, 25 Dec 2017 12:06:24 +0530</pubDate>
       
-      <guid>https://aishpant.github.io/blog/what-have-i-been-doing-for-outreachy/</guid>
-      <description>This is my last week at @Flipkart! Thursday- November 30th will be my last day of work, after which I go on a 4-month sabbatical. I will have to return all my IT assets including my beloved MacBook Pro :-(
-Back to the Outreachy excitement! There are a lot of things I want to get done before the internship officialy starts on the December 5. I have started to maintain a journal of what I am going to be working on every day.</description>
+      <guid>https://aishpant.github.io/blog/start-outreachy/</guid>
+      <description>For the last three weeks, I&amp;rsquo;ve been working as an Outreachy intern with Linux Kernel. Outreachy is an amazing three-month internship programme to get more underrepresented people to work on Free &amp;amp; Open Source Software (FOSS). It was started because of very low participation of women (less than 8%) in Google Summer of Code (GSoC). It&amp;rsquo;s completely remote and interns are paid $5,500 on completion of the project with an additional $500 stipend for attending conferences or meet-ups.</description>
     </item>
     
   </channel>

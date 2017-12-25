@@ -6,10 +6,19 @@
     <description>Recent content in Home on Aishwarya Pant</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Dec 2017 02:29:22 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 25 Dec 2017 12:06:24 +0530</lastBuildDate>
     
 	<atom:link href="https://aishpant.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>You should apply for Outreachy!</title>
+      <link>https://aishpant.github.io/blog/start-outreachy/</link>
+      <pubDate>Mon, 25 Dec 2017 12:06:24 +0530</pubDate>
+      
+      <guid>https://aishpant.github.io/blog/start-outreachy/</guid>
+      <description>For the last three weeks, I&amp;rsquo;ve been working as an Outreachy intern with Linux Kernel. Outreachy is an amazing three-month internship programme to get more underrepresented people to work on Free &amp;amp; Open Source Software (FOSS). It was started because of very low participation of women (less than 8%) in Google Summer of Code (GSoC). It&amp;rsquo;s completely remote and interns are paid $5,500 on completion of the project with an additional $500 stipend for attending conferences or meet-ups.</description>
+    </item>
     
     <item>
       <title>I am done reading Isaac Asimov</title>
@@ -22,7 +31,7 @@
     </item>
     
     <item>
-      <title>Book Review : Three Body Problem</title>
+      <title>Book Review : The Three Body Problem</title>
       <link>https://aishpant.github.io/blog/three-body-problem-review/</link>
       <pubDate>Mon, 25 Dec 2017 02:17:46 +0530</pubDate>
       
@@ -32,11 +41,11 @@ I really really wanted to like The Three Body Problem a lot more because of the 
     </item>
     
     <item>
-      <title>What have I been doing for Outreachy?</title>
-      <link>https://aishpant.github.io/blog/what-have-i-been-doing-for-outreachy/</link>
+      <title>Preface : What have I been upto?</title>
+      <link>https://aishpant.github.io/blog/what-have-i-been-upto/</link>
       <pubDate>Mon, 27 Nov 2017 12:03:06 +0530</pubDate>
       
-      <guid>https://aishpant.github.io/blog/what-have-i-been-doing-for-outreachy/</guid>
+      <guid>https://aishpant.github.io/blog/what-have-i-been-upto/</guid>
       <description>This is my last week at @Flipkart! Thursday- November 30th will be my last day of work, after which I go on a 4-month sabbatical. I will have to return all my IT assets including my beloved MacBook Pro :-(
 Back to the Outreachy excitement! There are a lot of things I want to get done before the internship officialy starts on the December 5. I have started to maintain a journal of what I am going to be working on every day.</description>
     </item>
