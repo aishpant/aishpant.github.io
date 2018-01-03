@@ -6,10 +6,22 @@
     <description>Recent content in Outreachy on Aishwarya Pant</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Dec 2017 12:06:24 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jan 2018 15:01:59 +0530</lastBuildDate>
     
 	<atom:link href="https://aishpant.github.io/tags/outreachy/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>attribute documentation : what, why, how?</title>
+      <link>https://aishpant.github.io/blog/attribute-documentation/</link>
+      <pubDate>Wed, 03 Jan 2018 15:01:59 +0530</pubDate>
+      
+      <guid>https://aishpant.github.io/blog/attribute-documentation/</guid>
+      <description>Before I talk about the title of the post, I will take a diversion to try to explain what kernel hackers mean when they say they do not break userspace.
+What is an API and an ABI? API: Application Programming Interface
+ABI: Application Binary Interface
+The two terms are closely related and can be a source of confusion. Both APIs and ABIs specify how two components interact with each other.</description>
+    </item>
     
     <item>
       <title>You should apply for Outreachy!</title>
