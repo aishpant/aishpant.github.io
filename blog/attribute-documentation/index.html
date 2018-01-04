@@ -131,11 +131,12 @@ API interaction is source code and for ABI it is binary executables.</p>
 <p>An API might be something you are more familiar with. For eg. the public methods
 and data structures of a Java class.</p>
 
-<p>An ABI is hardware and platform dependent. This is the definition from Linux
-Programming Interface: Among other things, an ABI specifies which registers and
-stack locations are used to exchange this information, and what meaning is
-attached to the exchanged value. Once compiled for a particular ABI, a binary
-executable should be able to run on any system presenting the same ABI.</p>
+<p>An ABI is hardware and platform dependent. This is the definition from <a href="http://man7.org/tlpi/" target="_blank">The Linux
+Programming Interface</a>: Among other things, an ABI
+specifies which registers and stack locations are used to exchange this
+information, and what meaning is attached to the exchanged value. Once compiled
+for a particular ABI, a binary executable should be able to run on any system
+presenting the same ABI.</p>
 
 <p>The one above is a more general definition. The <strong>Linux ABI</strong> defines how
 userspace communicates with the kernel - <code>syscalls</code>, pseudo file systems (<code>procfs</code>,
@@ -179,7 +180,7 @@ drwxr-xr-x <span style="color:#ae81ff">200</span> root root <span style="color:#
 drwxr-xr-x   <span style="color:#ae81ff">2</span> root root <span style="color:#ae81ff">0</span> Dec <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">19</span>:42 power</code></pre></div>
 <p>The directories under <code>sysfs</code> export information about the internal kernel data
 structures and layout. It provides a hierarchial view of the device structure
-under <code>/sys/devices</code>. Each directory in <code>sysfs</code> is a kbobject (kernel object) and
+under <code>/sys/devices</code>. Each directory in <code>sysfs</code> is a kobject (kernel object) and
 the files in a directory are the attributes of a kobject.</p>
 
 <p>What are kobjects? You actually don&rsquo;t need to work with or know internals of
@@ -208,12 +209,12 @@ version 2.5 with the unification of the device model.</p>
 <p>In summary:</p>
 
 <ul>
-<li>Reflects kernel&rsquo;s internal device model</li>
-<li>Not real files!</li>
-<li>Lives in memory</li>
+<li>The <code>sysfs</code> reflects the kernel&rsquo;s internal device model.</li>
+<li>It lives in memory.</li>
+<li>What you see is not real files! They don&rsquo;t exist on your disk.</li>
 <li>Subsystems like class, bus, block etc are just grouping of devices by
 connection to bus type, functionality, device type etc.</li>
-<li>Redundancy is avoided by using symlinks</li>
+<li>Redundancy is avoided by using symlinks.</li>
 <li>This ABI is huge! Which also makes it difficult to maintain :-(</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># ls -l /sys/class/hwmon
@@ -224,7 +225,7 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> root root <span style="color:#ae
 lrwxrwxrwx <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">0</span> Dec  <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">17</span>:02 hwmon1 -&gt; ../../devices/virtual/hwmon/hwmon1
 lrwxrwxrwx <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">0</span> Dec  <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">17</span>:02 hwmon2 -&gt; ../../devices/platform/coretemp.0/hwmon/hwmon2</code></pre></div>
 <p>Example of symlinking. Hardware monitoring devices are grouped by functionality under
-/sys/class/hwmon and symlinked to entries under /sys/dev.</p>
+/sys/class/hwmon and symlinked to entries under /sys/devices.</p>
 
 <h4 id="what-is-my-project-about">What is my project about?</h4>
 
@@ -246,7 +247,7 @@ attributes are missing.</p>
 <a href="http://coccinelle.lip6.fr/:Coccinelle" target="_blank">coccinelle</a> to collect information about
 various parts that are needed to fill this.</p>
 
-<p>How can this be filled?</p>
+<p>How can this be filled in?</p>
 
 <ol>
 <li>The Date, KernelVersion can be extracted from the commit that introduced it.
@@ -254,16 +255,15 @@ Date is the author commit date and KernelVersion is the first release version
 tag that contains the commit.</li>
 <li>The Contact person may perhaps be the module author but could also be a
 subsystem specific mailing list (mm, rtc, usb).</li>
-<li>The full attribute path and the description are the hard parts to fill.
+<li>The full attribute path and the description are the hard parts to fill.  The
 Description can be in a commit message or documented along with the driver
 (but not in the ABI). Some hints can be in the code surrounding the attribute
-declaration. Or in the description of the field ut might map to in a
+declaration. Or in the description of the field that it might map to in a
 structure.</li>
-<li>The attribute path i.e. What, is equally harder. The official path for attributes varies
-in every subsystem. Some prefer a class path or a bus path or a devices one.
-There are only a few ways to create a class device attribute (by declaring a
-struct class or using class_create()). Again, coccinelle should be helpful
-here.</li>
+<li>The official path for attributes, the field What, varies in every subsystem.
+Some prefer a class path or a bus path or a devices one. There are only a few
+ways to create a class device attribute (by declaring a struct class or using
+class_create()). Again, coccinelle should be helpful here.</li>
 </ol>
 
 <p>Want to know more?</p>
