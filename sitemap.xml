@@ -4,12 +4,17 @@
   
   <url>
     <loc>https://aishpant.github.io/</loc>
-    <lastmod>2018-01-03T15:01:59+05:30</lastmod>
+    <lastmod>2018-01-09T22:12:00+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://aishpant.github.io/blog/</loc>
-    <lastmod>2018-01-03T15:01:59+05:30</lastmod>
+    <lastmod>2018-01-09T22:12:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/blog/mailing-lists/</loc>
+    <lastmod>2018-01-09T22:12:00+05:30</lastmod>
   </url>
   
   <url>
@@ -64,6 +69,11 @@
   </url>
   
   <url>
+    <loc>https://aishpant.github.io/false/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://aishpant.github.io/tags/isaac-asimov/</loc>
     <lastmod>2017-12-25T02:29:22+05:30</lastmod>
     <priority>0</priority>
@@ -72,6 +82,24 @@
   <url>
     <loc>https://aishpant.github.io/tags/linux/</loc>
     <lastmod>2018-01-03T15:01:59+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/tags/lkml/</loc>
+    <lastmod>2018-01-09T22:12:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/tags/mutt/</loc>
+    <lastmod>2018-01-09T22:12:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aishpant.github.io/tags/offlineimap/</loc>
+    <lastmod>2018-01-09T22:12:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
