@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='This is the last week of my three-month internship with Outreachy.
+Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - attribute documentation.
+As I mentioned in a previous post, the ABI documentation format looks like the following:
+What: (the full sysfs path of the attribute)'>
+
+<meta property='og:title' content='outreachy : closing notes • Aishwarya Pant'>
+<meta property='og:description' content='This is the last week of my three-month internship with Outreachy.
+Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - attribute documentation.
+As I mentioned in a previous post, the ABI documentation format looks like the following:
+What: (the full sysfs path of the attribute)'>
+<meta property='og:url' content='https://aishpant.github.io/blog/outreachy-recap/'>
+<meta property='og:site_name' content='Aishwarya Pant'>
+<meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='outreachy'><meta property='article:tag' content='documentation'><meta property='article:tag' content='linux'><meta property='article:tag' content='sysfs'><meta property='article:published_time' content='2018-02-26T22:15:34&#43;05:30'/><meta property='article:modified_time' content='2018-02-26T22:15:34&#43;05:30'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.36.1" />
+
+  <title>outreachy : closing notes • Aishwarya Pant</title>
+  <link rel='canonical' href='https://aishpant.github.io/blog/outreachy-recap/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.7a50ccd3.css'><link rel='stylesheet' href='/css/custom.css'>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-111558627-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-blog'>
+  <div class='site'>
+
+    <a class='screen-reader' href='#main'>Skip to Content</a>
+
+    <header id='header' class='header-container'>
+      <div class='header site-header'>
+        <nav id='main-menu' class='main-menu-container' aria-label='Main Menu'>
+  <ul class='main-menu'>
+  <li>
+      <a href='/'>Home</a>
+    </li>
+  <li>
+      <a href='/blog/'>blog</a>
+    </li>
+  <li>
+      <a href='/about/'>About</a>
+    </li>
+  
+  </ul>
+</nav>
+
+        <div class='header-info'>
+          
+          <p class='site-title title'>Aishwarya Pant</p>
+          
+          <p class='site-description subtitle'>Outreachy intern with Linux Kernel | Flipkart | IIITDelhi | Becoming human | Pant wearer | Currently reading 📖</p>
+        </div>
+      </div>
+    </header>
+
+
+<main id='main' class='main'>
+  <article lang='en' class='entry'>
+    <header class='header-container'>
+  <div class='header entry-header'>
+    <div class='header-info'>
+      <h1 class='title'>outreachy : closing notes</h1>
+      
+
+    </div>
+    
+<div class='meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader'>Posted on </span>
+  <time class='date' datetime='2018-02-26T22:15:34&#43;05:30'>Feb 26, 2018</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+5 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+    
+    
+
+    <div class='entry-content'>
+  
+
+<p>This is the last week of my three-month internship with
+<a href="http://outreachy.org/" target="_blank">Outreachy</a>.</p>
+
+<h5 id="did-i-accomplish-what-i-had-set-out-to-do">Did I accomplish what I had set out to do?</h5>
+
+<p>In some ways, yes. I have written a helper tool that tries to generate and
+formats sysfs style documentation. Link to the project - <a href="https://github.com/aishpant/attribute-documentation" target="_blank">attribute
+documentation</a>.</p>
+
+<p>As I mentioned in a <a href="https://aishpant.github.io/blog/attribute-documentation/" target="_blank">previous
+post</a>, the ABI
+documentation format looks like the following:</p>
+
+<p>What: (the full sysfs path of the attribute)<br />
+Date: (date of creation)<br />
+KernelVersion: (kernel version it first showed up in)<br />
+Contact: (primary contact)<br />
+Description: (long description on usage)</p>
+
+<p>The scripts under this project can fill in the &lsquo;Date&rsquo; and the &lsquo;KernelVersion&rsquo;
+fields with high accuracy. The &lsquo;Contact&rsquo; details is prompted for once, and the
+others &lsquo;What&rsquo; and &lsquo;Description&rsquo; are prompted for every attribute.</p>
+
+<p>Descriptions are collected from various sources:</p>
+
+<ul>
+<li><p>From the commit message that introduced the attribute.</p></li>
+
+<li><p>If suppose documentation is present somewhere, plain old grep for the
+attribute name in the Documentation folder.</p></li>
+
+<li><p>Comments around the attribute declaring macro and the attribute show/store
+functions.</p></li>
+
+<li><p>From the structure fields that map to the attribute.</p></li>
+</ul>
+
+<p>For example - the attribute show functions usually look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">        <span style="color:#66d9ef">static</span> ssize_t
+        <span style="color:#a6e22e">port_destid_show</span>(<span style="color:#66d9ef">struct</span> device <span style="color:#f92672">*</span>dev, <span style="color:#66d9ef">struct</span> device_attribute <span style="color:#f92672">*</span>attr,
+                         <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buf)
+        {
+                <span style="color:#66d9ef">struct</span> rio_mport <span style="color:#f92672">*</span>mport <span style="color:#f92672">=</span> to_rio_mport(dev);
+
+                <span style="color:#66d9ef">if</span> (mport)
+                        <span style="color:#66d9ef">return</span> sprintf(buf, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;0x%04x</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mport<span style="color:#f92672">-&gt;</span>host_deviceid);
+                <span style="color:#66d9ef">else</span>
+                        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>ENODEV;
+        }</code></pre></div>
+<p>There is a conversion to a driver private struct and then one or many fields from
+  it are put in the buffer.</p>
+
+<p>In the example above, it&rsquo;s a struct of type <code>rio_mport</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">  <span style="color:#66d9ef">struct</span> rio_mport {
+        ...
+        <span style="color:#66d9ef">int</span> host_deviceid;      <span style="color:#75715e">/* Host device ID */</span>
+        <span style="color:#66d9ef">struct</span> rio_ops <span style="color:#f92672">*</span>ops;    <span style="color:#75715e">/* low-level architecture-dependent routines */</span>
+        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> id;       <span style="color:#75715e">/* port ID, unique among all ports */</span>
+        ...
+        };</code></pre></div>
+<p>There&rsquo;s a comment against <code>host_deviceid</code> here and this can be extracted using
+  coccinelle.</p>
+
+<p>Using these scripts, I have added documentation for <strong>312</strong> sysfs attributes. I
+hope to add some more in the coming week. A list of my documentation patches is
+available
+<a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=Aishwarya+Pant" target="_blank">here</a>.</p>
+
+<div>
+<img src="/images/sysfs_line_plot.jpeg" alt="plot of number of documented attributes per kernel release" style="max-width: 100%;width: 600px;"  width="600" />
+</div>
+
+<p>Yep, the steep line at the top are some of my patches! These should be a part of
+the 4.16 kernel release.</p>
+
+<p>I was hoping to build something that would fill in all parts of the
+documentation. But, automatic generation of documentation is kind of a
+fantastical idea.</p>
+
+<h5 id="usage">Usage</h5>
+
+<p>Prerequisites:</p>
+
+<ul>
+<li>Coccinelle - <a href="http://coccinelle.lip6.fr/download.php" target="_blank">install instructions</a></li>
+<li>Python 3</li>
+<li>Linux Kernel source code</li>
+</ul>
+
+<p>First, you need to clone the GitHub
+<a href="https://github.com/aishpant/attribute-documentation" target="_blank">project</a>. The <code>make doc</code>
+command needs two options to run - path to the kernel source file or directory
+which needs documentation, and the path to the kernel source code base.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ make doc FILE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>source file or directory<span style="color:#66d9ef">)</span> KERNEL_PATH<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>path to kernel source<span style="color:#66d9ef">)</span>
+$ make clean # clean temporary &amp; generated files</code></pre></div>
+<p>Example usage - if I want to document sysfs interface of the lp855x series
+backlight driver, I will run the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ make doc FILE<span style="color:#f92672">=</span>~/projects/linux/drivers/video/backlight/lp855x_bl.c KERNEL_PATH<span style="color:#f92672">=</span>~/projects/linux</code></pre></div>
+<p>While <code>make doc</code> runs, it will create a <code>description.txt</code> file containing
+possible descriptions for the attributes. You will need to refer to it while
+filling in the documentation. The formatted documentation is appended to a file
+named <code>sysfs_doc</code>.</p>
+
+<h5 id="what-did-i-learn">What did I learn?</h5>
+
+<p><strong>Documentation within the kernel is kind of a mess.</strong> You are expected to read
+<a href="lwn.net/Kernel/LDD3/" target="_blank">Linux Device Drivers book</a> to even begin to understand
+the kernel. Sadly, this book is outdated since it was written in 2005 and there
+seems to be <a href="https://www.reddit.com/r/linux/comments/61q6y8/what_happened_to_linux_device_drivers_4th_edition/dfgkzqz/" target="_blank">no
+plan</a>
+for a fourth edition. Most in-kernel documentation is quite sparse, sometimes
+outdated, assumes some prior knowledge and expects readers to go through
+specifications or datasheets. This is a <strong>huge</strong> barrier for newbies but it is
+also true that maintainers really appreciate documentation patches.</p>
+
+<p><strong>It made me think about how to write and communicate effectively.</strong> Often while
+writing, I would ask myself these questions - Is this documentation easy to
+follow? Am I using unexplained abbreviations? Is this information complete? Am I
+skipping describing something because it seems &lsquo;obvious&rsquo;?</p>
+
+<p><strong>Overview of kernel subsystems</strong>. I learned how real time clocks worked, about
+cpuidle (power management for idle states), the loop block driver, the backlight
+drivers, and the network communications standard used in high-performance
+computing (infiniband). The kernel is <strong>huge</strong> and there are lot of exciting
+things to learn.</p>
+
+<p><strong>Working remotely is hard</strong>. It took me a long time to get used to it. My
+mentor and I had weekly meetings where we decided on the tasks for the week. I
+may or may not have always finished them on time! There are many benefits of
+working from home but it&rsquo;s odd not being around people all day.</p>
+
+<p><strong>I am the maintainer of an open source project now!</strong> Sort of. There is a lot
+more to be done in <a href="https://github.com/aishpant/attribute-documentation" target="_blank">attribute
+documentation</a>. You can
+help with kernel documentation - from a rough estimate, there are around 2000
+attributes that are undocumented. Or you can help me improve the python scripts.
+This project has a README and there are some newbie friendly tasks too.</p>
+
+<p><strong>I am a much more confident engineer and a better programmer</strong> because of my
+Outreachy experience. I don&rsquo;t worry too much if I encounter something new
+anymore. I realise that programming languages, technical concepts can be
+mastered over time and willingness to learn is a good skill to have.</p>
+
+<p>I worked on improving documentation for one of the most important software
+projects and got paid while doing it! I am grateful to the Outreachy organisers
+for making this happen, and my mentor Julia Lawall for guiding me over the last
+few months.</p>
+
+<h5 id="what-s-next">What&rsquo;s next?</h5>
+
+<p>I am looking a job! I am interested in production / systems / infrastructure
+engineer roles. It would be quite amazing if I get to work on open source. Fun
+fact - I have not been through a job interview in 3 years, so it looks like I am
+going to have some fun :-)</p>
+
+</div>
+
+    
+<footer class='entry-footer-container'>
+  <div class='entry-footer'>
+  <div class='tags'>
+  <span class='taxonomyTerm-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+</span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/outreachy'>Outreachy</a>, <a class='tag' href='/tags/documentation'>Documentation</a>, <a class='tag' href='/tags/linux'>Linux</a>, <a class='tag' href='/tags/sysfs'>Sysfs</a></div>
+
+  </div>
+</footer>
+
+
+  </article>
+  
+<nav class='entry-nav-container'>
+  <div class='entry-nav'><div class='prev-entry'>
+      <a href='/blog/mailing-lists/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>offlineimap &#43; mutt = how to deal with LKML</a>
+    </div></div>
+</nav>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social-menu-container'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='https://github.com/aishpant' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/aishpant' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:aishpant@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</div>
+        <div class='copyright'>
+  <p>
+  </p>
+</div>
+
+      </div>
+    </footer>
+
+  </div><script src='/assets/js/main.5871befd.js'></script><script src='/js/custom.js'></script></body>
+
+</html>
+

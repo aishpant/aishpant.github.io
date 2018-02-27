@@ -6,10 +6,22 @@
     <description>Recent content in Sysfs on Aishwarya Pant</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jan 2018 15:01:59 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 26 Feb 2018 22:15:34 +0530</lastBuildDate>
     
 	<atom:link href="https://aishpant.github.io/tags/sysfs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>outreachy : closing notes</title>
+      <link>https://aishpant.github.io/blog/outreachy-recap/</link>
+      <pubDate>Mon, 26 Feb 2018 22:15:34 +0530</pubDate>
+      
+      <guid>https://aishpant.github.io/blog/outreachy-recap/</guid>
+      <description>This is the last week of my three-month internship with Outreachy.
+Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - attribute documentation.
+As I mentioned in a previous post, the ABI documentation format looks like the following:
+What: (the full sysfs path of the attribute)</description>
+    </item>
     
     <item>
       <title>attribute documentation : what, why, how?</title>
