@@ -5,20 +5,18 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='This is the last week of my three-month internship with Outreachy.
-Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - attribute documentation.
-As I mentioned in a previous post, the ABI documentation format looks like the following:
-What: (the full sysfs path of the attribute)'>
+Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - abi2doc.
+From a rough estimate1, there are around 2000 attributes that are undocumented in the kernel. Using abi2doc, I have added documentation for 312 sysfs attributes.'>
 
 <meta property='og:title' content='outreachy : closing notes • Aishwarya Pant'>
 <meta property='og:description' content='This is the last week of my three-month internship with Outreachy.
-Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - attribute documentation.
-As I mentioned in a previous post, the ABI documentation format looks like the following:
-What: (the full sysfs path of the attribute)'>
+Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - abi2doc.
+From a rough estimate1, there are around 2000 attributes that are undocumented in the kernel. Using abi2doc, I have added documentation for 312 sysfs attributes.'>
 <meta property='og:url' content='https://aishpant.github.io/blog/outreachy-recap/'>
 <meta property='og:site_name' content='Aishwarya Pant'>
 <meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='outreachy'><meta property='article:tag' content='documentation'><meta property='article:tag' content='linux'><meta property='article:tag' content='sysfs'><meta property='article:published_time' content='2018-02-26T22:15:34&#43;05:30'/><meta property='article:modified_time' content='2018-02-26T22:15:34&#43;05:30'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.36.1" />
+<meta name="generator" content="Hugo 0.37" />
 
   <title>outreachy : closing notes • Aishwarya Pant</title>
   <link rel='canonical' href='https://aishpant.github.io/blog/outreachy-recap/'>
@@ -99,7 +97,7 @@ ga('send', 'pageview');
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-5 mins read
+6 mins read
 </span>
 
 
@@ -121,8 +119,25 @@ ga('send', 'pageview');
 <h5 id="did-i-accomplish-what-i-had-set-out-to-do">Did I accomplish what I had set out to do?</h5>
 
 <p>In some ways, yes. I have written a helper tool that tries to generate and
-formats sysfs style documentation. Link to the project - <a href="https://github.com/aishpant/attribute-documentation" target="_blank">attribute
-documentation</a>.</p>
+formats sysfs style documentation. Link to the project -
+<a href="https://github.com/aishpant/attribute-documentation" target="_blank">abi2doc</a>.</p>
+
+<p>From a <a href="https://github.com/aishpant/documentation-scripts/blob/master/result/output.csv" target="_blank">rough
+estimate</a><sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>,
+there are around 2000 attributes that are undocumented in the kernel. Using
+<code>abi2doc</code>, I have added documentation for <strong>312</strong> sysfs attributes. A list of my
+documentation patches is available
+<a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=Aishwarya+Pant" target="_blank">here</a>.</p>
+
+<p>Plotted<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> below is a graph of the number of documented attributes in all the stable kernel
+versions. The next kernel release 4.16 should have <code>2867</code> or more documented attributes compared to
+<code>2442</code> from Linux 4.15.</p>
+
+<div>
+<img src="/images/sysfs_line_plot.jpeg" alt="plot of number of documented attributes per kernel release" style="max-width: 100%;width: 600px;"  width="600" />
+</div>
+
+<p>Yep, the steep line at the top are some of my patches!</p>
 
 <p>As I mentioned in a <a href="https://aishpant.github.io/blog/attribute-documentation/" target="_blank">previous
 post</a>, the ABI
@@ -134,65 +149,54 @@ KernelVersion: (kernel version it first showed up in)<br />
 Contact: (primary contact)<br />
 Description: (long description on usage)</p>
 
-<p>The scripts under this project can fill in the &lsquo;Date&rsquo; and the &lsquo;KernelVersion&rsquo;
-fields with high accuracy. The &lsquo;Contact&rsquo; details is prompted for once, and the
-others &lsquo;What&rsquo; and &lsquo;Description&rsquo; are prompted for every attribute.</p>
+<p><code>abi2doc</code> can fill in the <code>'Date'</code> and the <code>'KernelVersion'</code> fields with high
+accuracy. The <code>'Contact'</code> details are prompted once per script run, and the
+others <code>'What'</code> and <code>'Description'</code> are prompted on every attribute.</p>
 
 <p>Descriptions are collected from various sources:</p>
 
 <ul>
 <li><p>From the commit message that introduced the attribute.</p></li>
 
-<li><p>If suppose documentation is present somewhere, plain old grep for the
-attribute name in the Documentation folder.</p></li>
+<li><p>From the comments around the attribute declaring macro and the attribute
+show/store functions.</p></li>
 
-<li><p>Comments around the attribute declaring macro and the attribute show/store
-functions.</p></li>
+<li><p>From the structure fields that map to the attribute.</p>
 
-<li><p>From the structure fields that map to the attribute.</p></li>
+<p>For eg. consider the attribute declaring macro <code>PORT_RO(dest_id)</code> and
+its show function <code>port_destid_show(...)</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> ssize_t
+<span style="color:#a6e22e">port_destid_show</span>(<span style="color:#66d9ef">struct</span> device <span style="color:#f92672">*</span>dev, <span style="color:#66d9ef">struct</span> device_attribute <span style="color:#f92672">*</span>attr,
+         <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buf)
+{
+    <span style="color:#66d9ef">struct</span> rio_mport <span style="color:#f92672">*</span>mport <span style="color:#f92672">=</span> to_rio_mport(dev);
+
+    <span style="color:#66d9ef">if</span> (mport)
+        <span style="color:#66d9ef">return</span> sprintf(buf, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;0x%04x</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mport<span style="color:#f92672">-&gt;</span>host_deviceid);
+    <span style="color:#66d9ef">else</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>ENODEV;
+}</code></pre></div>
+<p>The attribute show functions typically contain a conversion to a driver
+private struct and then one or many fields from it are put in the
+buffer.</p>
+
+<p>In the example above, the driver private structure is of type
+<code>rio_mport</code> and the attribute <code>port_id</code> maps to the field
+<code>host_deviceid</code> in the structure.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">struct</span> rio_mport {
+...
+<span style="color:#66d9ef">int</span> host_deviceid;      <span style="color:#75715e">/* Host device ID */</span>
+<span style="color:#66d9ef">struct</span> rio_ops <span style="color:#f92672">*</span>ops;    <span style="color:#75715e">/* low-level architecture-dependent routines */</span>
+<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> id;       <span style="color:#75715e">/* port ID, unique among all ports */</span>
+...
+};</code></pre></div>
+<p>There&rsquo;s a comment against <code>host_deviceid</code> here and this can be
+  extracted using coccinelle.</p></li>
 </ul>
 
-<p>For example - the attribute show functions usually look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">        <span style="color:#66d9ef">static</span> ssize_t
-        <span style="color:#a6e22e">port_destid_show</span>(<span style="color:#66d9ef">struct</span> device <span style="color:#f92672">*</span>dev, <span style="color:#66d9ef">struct</span> device_attribute <span style="color:#f92672">*</span>attr,
-                         <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buf)
-        {
-                <span style="color:#66d9ef">struct</span> rio_mport <span style="color:#f92672">*</span>mport <span style="color:#f92672">=</span> to_rio_mport(dev);
-
-                <span style="color:#66d9ef">if</span> (mport)
-                        <span style="color:#66d9ef">return</span> sprintf(buf, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;0x%04x</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, mport<span style="color:#f92672">-&gt;</span>host_deviceid);
-                <span style="color:#66d9ef">else</span>
-                        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>ENODEV;
-        }</code></pre></div>
-<p>There is a conversion to a driver private struct and then one or many fields from
-  it are put in the buffer.</p>
-
-<p>In the example above, it&rsquo;s a struct of type <code>rio_mport</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">  <span style="color:#66d9ef">struct</span> rio_mport {
-        ...
-        <span style="color:#66d9ef">int</span> host_deviceid;      <span style="color:#75715e">/* Host device ID */</span>
-        <span style="color:#66d9ef">struct</span> rio_ops <span style="color:#f92672">*</span>ops;    <span style="color:#75715e">/* low-level architecture-dependent routines */</span>
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> id;       <span style="color:#75715e">/* port ID, unique among all ports */</span>
-        ...
-        };</code></pre></div>
-<p>There&rsquo;s a comment against <code>host_deviceid</code> here and this can be extracted using
-  coccinelle.</p>
-
-<p>Using these scripts, I have added documentation for <strong>312</strong> sysfs attributes. I
-hope to add some more in the coming week. A list of my documentation patches is
-available
-<a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=Aishwarya+Pant" target="_blank">here</a>.</p>
-
-<div>
-<img src="/images/sysfs_line_plot.jpeg" alt="plot of number of documented attributes per kernel release" style="max-width: 100%;width: 600px;"  width="600" />
-</div>
-
-<p>Yep, the steep line at the top are some of my patches! These should be a part of
-the 4.16 kernel release.</p>
-
 <p>I was hoping to build something that would fill in all parts of the
-documentation. But, automatic generation of documentation is kind of a
-fantastical idea.</p>
+documentation i.e. the full attribute path and a concise description. But,
+automatic generation of documentation is kind of a fantastical idea.</p>
 
 <h5 id="usage">Usage</h5>
 
@@ -204,19 +208,67 @@ fantastical idea.</p>
 <li>Linux Kernel source code</li>
 </ul>
 
-<p>First, you need to clone the GitHub
-<a href="https://github.com/aishpant/attribute-documentation" target="_blank">project</a>. The <code>make doc</code>
-command needs two options to run - path to the kernel source file or directory
-which needs documentation, and the path to the kernel source code base.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ make doc FILE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>source file or directory<span style="color:#66d9ef">)</span> KERNEL_PATH<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>path to kernel source<span style="color:#66d9ef">)</span>
-$ make clean # clean temporary &amp; generated files</code></pre></div>
+<p>abi2doc is available on <a href="https://pypi.python.org/pypi/abi2doc" target="_blank">PYPI</a>. Install with <code>pip</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install abi2doc</code></pre></div>
+<p>The library is currently tested against Python versions <code>3.4+</code> and intended to
+run inside the kernel source.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">usage: abi2doc <span style="color:#f92672">[</span>-h<span style="color:#f92672">]</span> -f SOURCE_FILE -o OUTPUT_FILE
+
+Helper <span style="color:#66d9ef">for</span> documenting Linux Kernel sysfs attributes
+
+required arguments:
+  -f SOURCE_FILE  linux source file to document
+  -o OUTPUT_FILE  location of the generated sysfs ABI documentation
+
+optional arguments:
+  -h, --help      show this help message and exit</code></pre></div>
 <p>Example usage - if I want to document sysfs interface of the lp855x series
 backlight driver, I will run the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ make doc FILE<span style="color:#f92672">=</span>~/projects/linux/drivers/video/backlight/lp855x_bl.c KERNEL_PATH<span style="color:#f92672">=</span>~/projects/linux</code></pre></div>
-<p>While <code>make doc</code> runs, it will create a <code>description.txt</code> file containing
-possible descriptions for the attributes. You will need to refer to it while
-filling in the documentation. The formatted documentation is appended to a file
-named <code>sysfs_doc</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">abi2doc -f drivers/video/backlight/lp855x_bl.c -o sysfs_doc.txt</code></pre></div>
+<p>The script will fill in the <code>'Date'</code> and the <code>'KernelVersion'</code> fields for found
+attributes. The <code>'Contact'</code> details are  prompted once per script run, and the
+others <code>'What'</code> and <code>'Description'</code> are prompted on every attribute. The entered
+description will be followed by hints, as shown in the generated documentation
+below.</p>
+
+<pre><code>What:       /sys/class/backlight/&lt;backlight&gt;/bled_mode
+Date:       Oct, 2012
+KernelVersion:  3.7
+Contact:    dri-devel@lists.freedesktop.org
+Description:
+        (WO) Write to the backlight mapping mode. The backlight current
+        can be mapped for either exponential (value &quot;0&quot;) or linear
+        mapping modes (default).
+        --------------------------------
+        %%%%% Hints below %%%%%
+        bled_mode DEVICE_ATTR drivers/video/backlight/lm3639_bl.c 220
+        --------------------------------
+        %%%%% store fn comments %%%%%
+        /* backlight mapping mode */
+        --------------------------------
+        %%%%% commit message %%%%%
+        commit 0f59858d511960caefb42c4535dc73c2c5f3136c
+        Author: G.Shark Jeong &lt;gshark.jeong@gmail.com&gt;
+        Date:   Thu Oct 4 17:12:55 2012 -0700
+
+            backlight: add new lm3639 backlight driver
+
+            This driver is a general version for LM3639 backlgiht + flash driver chip
+            of TI.
+
+            LM3639:
+            The LM3639 is a single chip LCD Display Backlight driver + white LED
+            Camera driver.  Programming is done over an I2C compatible interface.
+            www.ti.com
+
+            [akpm@linux-foundation.org: code layout tweaks]
+            Signed-off-by: G.Shark Jeong &lt;gshark.jeong@gmail.com&gt;
+            Cc: Richard Purdie &lt;rpurdie@rpsys.net&gt;
+            Cc: Daniel Jeong &lt;daniel.jeong@ti.com&gt;
+            Cc: Randy Dunlap &lt;rdunlap@xenotime.net&gt;
+            Signed-off-by: Andrew Morton &lt;akpm@linux-foundation.org&gt;
+            Signed-off-by: Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+</code></pre>
 
 <h5 id="what-did-i-learn">What did I learn?</h5>
 
@@ -266,9 +318,20 @@ few months.</p>
 <h5 id="what-s-next">What&rsquo;s next?</h5>
 
 <p>I am looking a job! I am interested in production / systems / infrastructure
-engineer roles. It would be quite amazing if I get to work on open source. Fun
-fact - I have not been through a job interview in 3 years, so it looks like I am
-going to have some fun :-)</p>
+engineer roles and I can work remotely. It would be quite amazing if I get to
+work on open source. Fun fact - I have not been through a job interview in 3
+years, so it looks like I am going to have some fun :-)</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">The link contains an analysis of undocumented attributes only in the <code>driver</code> source files. Possibly outdated.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">For anyone who is interested, <a href="https://github.com/aishpant/documentation-scripts/blob/master/stats.sh" target="_blank">this</a> is the script I used to calculate the number of documented attributes and plotted the graph using <a href="https://plot.ly/" target="_blank">Plotly</a>.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
 
 </div>
 

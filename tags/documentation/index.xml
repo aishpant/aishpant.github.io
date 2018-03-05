@@ -18,9 +18,8 @@
       
       <guid>https://aishpant.github.io/blog/outreachy-recap/</guid>
       <description>This is the last week of my three-month internship with Outreachy.
-Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - attribute documentation.
-As I mentioned in a previous post, the ABI documentation format looks like the following:
-What: (the full sysfs path of the attribute)</description>
+Did I accomplish what I had set out to do? In some ways, yes. I have written a helper tool that tries to generate and formats sysfs style documentation. Link to the project - abi2doc.
+From a rough estimate1, there are around 2000 attributes that are undocumented in the kernel. Using abi2doc, I have added documentation for 312 sysfs attributes.</description>
     </item>
     
     <item>

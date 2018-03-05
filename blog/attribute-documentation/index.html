@@ -18,7 +18,7 @@ The two terms are closely related and can be a source of confusion. Both APIs an
 <meta property='og:site_name' content='Aishwarya Pant'>
 <meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:tag' content='outreachy'><meta property='article:tag' content='documentation'><meta property='article:tag' content='linux'><meta property='article:tag' content='sysfs'><meta property='article:published_time' content='2018-01-03T15:01:59&#43;05:30'/><meta property='article:modified_time' content='2018-01-03T15:01:59&#43;05:30'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.36.1" />
+<meta name="generator" content="Hugo 0.37" />
 
   <title>attribute documentation : what, why, how? • Aishwarya Pant</title>
   <link rel='canonical' href='https://aishpant.github.io/blog/attribute-documentation/'>
@@ -202,7 +202,7 @@ to avoid the highly structured or highly messy representation of <code>procfs</c
 ABI and well-documented through the <a href="https://www.kernel.org/doc/man-pages/" target="_blank">linux manpages
 project</a>, it is possible for <code>sysfs</code>
 interfaces to change in an incompatible way between release versions.  There are
-around 332 <code>syscalls</code><sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> whereas I can see about 30,000 <code>sysfs</code> files<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup> on my
+around 332 <code>syscalls</code><sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> whereas I can see about 30,000 <code>sysfs</code> files<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> on my
 laptop. <strong>This is massive</strong>, having only been introduced in kernel release
 version 2.5 with the unification of the device model.</p>
 
@@ -232,7 +232,7 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> root root <span style="color:#ae
 <p>There are many configurable parameters in the sysfs ABI, the attributes or
 virtual files can be read or written to from userspace. The documentation for
 them resides in Documentation/ABI. But many of them are not represented. From a
-preliminary study<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>, I found that ~2000 attributes are documented and ~1000
+preliminary study<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>, I found that ~2000 attributes are documented and ~1000
 attributes are missing.</p>
 
 <p>The ABI documentation format looks like the following:</p>
