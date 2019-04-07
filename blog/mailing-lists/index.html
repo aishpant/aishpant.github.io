@@ -1,78 +1,153 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
+<html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='LKML is a very high volume mailing list. I accumulate around 500 emails during the time I spend sleeping. It&rsquo;s a kitchen sink for every kernel patch and discussion that is going on, which is a good thing and a bad thing. Because I care about only a few of them. Most users subscribe to and read only subsystem specific mailing lists. The trick is to run scripts on top of them to find the emails of interest.'>
+<meta name='theme-color' content='#FFB6C1'>
 
-<meta property='og:title' content='offlineimap &#43; mutt = how to deal with LKML • Aishwarya Pant'>
+<meta property='og:title' content='offlineimap &#43; mutt = how to deal with LKML • Aishwarya Pant&#39;s Blog'>
 <meta property='og:description' content='LKML is a very high volume mailing list. I accumulate around 500 emails during the time I spend sleeping. It&rsquo;s a kitchen sink for every kernel patch and discussion that is going on, which is a good thing and a bad thing. Because I care about only a few of them. Most users subscribe to and read only subsystem specific mailing lists. The trick is to run scripts on top of them to find the emails of interest.'>
 <meta property='og:url' content='https://aishpant.github.io/blog/mailing-lists/'>
-<meta property='og:site_name' content='Aishwarya Pant'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://aishpant.github.io/images/mutt.png'><meta property='article:section' content='Blog'><meta property='article:tag' content='mutt'><meta property='article:tag' content='offlineimap'><meta property='article:tag' content='lkml'><meta property='article:published_time' content='2018-01-09T22:12:00&#43;05:30'/><meta property='article:modified_time' content='2018-01-09T22:12:00&#43;05:30'/><meta name='twitter:card' content='summary_large_image'><meta property='twitter:image' content='https://aishpant.github.io/images/mutt.png'>
+<meta property='og:site_name' content='Aishwarya Pant&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://aishpant.github.io/images/mutt.png'><meta property='article:section' content='blog'><meta property='article:tag' content='mutt'><meta property='article:tag' content='offlineimap'><meta property='article:tag' content='lkml'><meta property='article:published_time' content='2018-01-09T22:12:00&#43;05:30'/><meta property='article:modified_time' content='2018-01-09T22:12:00&#43;05:30'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:site' content='@aishpant'><meta property='twitter:image' content='https://aishpant.github.io/images/mutt.png'>
 
-<meta name="generator" content="Hugo 0.37" />
+<meta name="generator" content="Hugo 0.53" />
 
-  <title>offlineimap &#43; mutt = how to deal with LKML • Aishwarya Pant</title>
+  <title>offlineimap &#43; mutt = how to deal with LKML • Aishwarya Pant&#39;s Blog</title>
   <link rel='canonical' href='https://aishpant.github.io/blog/mailing-lists/'>
   
   
-  <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.7a50ccd3.css'><link rel='stylesheet' href='/css/custom.css'>
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-111558627-1', 'auto');
-ga('send', 'pageview');
+  <link rel='icon' href='/images/me.png'>
+<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#FFB6C1;}
+</style>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-111558627-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
 
 </head>
+<body class='page type-blog has-cover has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/me.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+     
+    </h2>
+    <div class='desc'>
+    Musings on books &amp; software
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud no-shuffle'><li>
+        <a href='/tags/book-review/' style='font-size:1.3333333333333333em'>Book Review</a>
+      </li><li>
+        <a href='/tags/documentation/' style='font-size:1.3333333333333333em'>Documentation</a>
+      </li><li>
+        <a href='/tags/golang/' style='font-size:1em'>Golang</a>
+      </li><li>
+        <a href='/tags/isaac-asimov/' style='font-size:1em'>Isaac Asimov</a>
+      </li><li>
+        <a href='/tags/linux/' style='font-size:1.3333333333333333em'>Linux</a>
+      </li><li>
+        <a href='/tags/lkml/' style='font-size:1em'>Lkml</a>
+      </li><li>
+        <a href='/tags/mutt/' style='font-size:1em'>Mutt</a>
+      </li><li>
+        <a href='/tags/offlineimap/' style='font-size:1em'>Offlineimap</a>
+      </li><li>
+        <a href='/tags/opinion/' style='font-size:1em'>Opinion</a>
+      </li><li>
+        <a href='/tags/outreachy/' style='font-size:1.6666666666666665em'>Outreachy</a>
+      </li><li>
+        <a href='/tags/science-fiction/' style='font-size:1em'>Science Fiction</a>
+      </li><li>
+        <a href='/tags/sysfs/' style='font-size:1.3333333333333333em'>Sysfs</a>
+      </li><li>
+        <a href='/tags/thoughts/' style='font-size:2em'>Thoughts</a>
+      </li></ul>
+</div>
 
 
-<body class='page type-blog hasCover'>
-  <div class='site'>
+</section>
+</div>
 
-    <a class='screen-reader' href='#main'>Skip to Content</a>
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><a class='screen-reader-text' href='#content'>Skip to Content</a>
 
-    <header id='header' class='header-container'>
-      <div class='header site-header'>
-        <nav id='main-menu' class='main-menu-container' aria-label='Main Menu'>
-  <ul class='main-menu'>
-  <li>
-      <a href='/'>Home</a>
-    </li>
-  <li>
-      <a href='/blog/'>blog</a>
-    </li>
-  <li>
-      <a href='/about/'>About</a>
-    </li>
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
-  </ul>
-</nav>
-
-        <div class='header-info'>
-          
-          <p class='site-title title'>Aishwarya Pant</p>
-          
-          <p class='site-description subtitle'>Outreachy intern with Linux Kernel | Flipkart | IIITDelhi | Becoming human | Pant wearer | Currently reading 📖</p>
-        </div>
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/blog/'>blog</a></li><li><span>offlineimap &#43; mutt = how to deal with LKML</span></li></ol>
+    </nav>
+  </section></div>
       </div>
-    </header>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Aishwarya Pant&#39;s Blog</p><p class='desc site-desc'></p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
 
 
-<main id='main' class='main'>
-  <article lang='en' class='entry'>
-    <header class='header-container'>
-  <div class='header entry-header'>
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
     <div class='header-info'>
       <h1 class='title'>offlineimap &#43; mutt = how to deal with LKML</h1>
       
 
     </div>
-    
-<div class='meta'>
+    <div class='entry-meta'>
   <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -81,8 +156,8 @@ ga('send', 'pageview');
   <line x1="3" y1="10" x2="21" y2="10"/>
   
 </svg>
-<span class='screen-reader'>Posted on </span>
-  <time class='date' datetime='2018-01-09T22:12:00&#43;05:30'>Jan 09, 2018</time>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-01-09T22:12:00&#43;05:30'>Jan 09, 2018</time>
 </span>
 
   
@@ -103,17 +178,17 @@ ga('send', 'pageview');
   </div>
 </header>
 
-    <div class='entry-cover-container'>
-  <figure class='entry-cover cover-normal'>
+  <div class='entry-cover'>
+  <figure class='container cover-normal'>
     <img src='/images/mutt.png'/>
     
       
     
   </figure>
 </div>
-    
+  
 
-    <div class='entry-content'>
+  <div class='container entry-content'>
   
 
 <p><a href="http://vger.kernel.org/lkml/" target="_blank">LKML</a> is a <em>very</em> high volume mailing list. I
@@ -136,35 +211,35 @@ download and keep all my mails offline. It&rsquo;s never a bad idea to keep a ba
 This is the minimal config needed to get started :</p>
 
 <p>~/.offlineimaprc</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#f92672">[</span>general<span style="color:#f92672">]</span>
-<span style="color:#75715e"># list of accounts, I have only one
-</span><span style="color:#75715e"></span>accounts <span style="color:#f92672">=</span> aishpant
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#f92672">[</span>general<span style="color:#f92672">]</span>
+<span style="color:#75715e"># list of accounts, I have only one</span>
+<span style="color:#111">accounts</span> <span style="color:#f92672">=</span> aishpant
 
 <span style="color:#f92672">[</span>Account aishpant<span style="color:#f92672">]</span>
-<span style="color:#75715e"># identifier for the local repository
-</span><span style="color:#75715e"></span>localrepository <span style="color:#f92672">=</span> local-aishpant
-<span style="color:#75715e"># identifier for the remote repository
-</span><span style="color:#75715e"></span>remoterepository <span style="color:#f92672">=</span> remote-aishpant
-<span style="color:#75715e"># download emails starting from this date
-</span><span style="color:#75715e"></span>maxage <span style="color:#f92672">=</span> <span style="color:#ae81ff">2017</span>-12-25
+<span style="color:#75715e"># identifier for the local repository</span>
+<span style="color:#111">localrepository</span> <span style="color:#f92672">=</span> local-aishpant
+<span style="color:#75715e"># identifier for the remote repository</span>
+<span style="color:#111">remoterepository</span> <span style="color:#f92672">=</span> remote-aishpant
+<span style="color:#75715e"># download emails starting from this date</span>
+<span style="color:#111">maxage</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2017</span>-12-25
 
-<span style="color:#75715e"># local repository settings
-</span><span style="color:#75715e"></span><span style="color:#f92672">[</span>Repository local-aishpant<span style="color:#f92672">]</span>
-type <span style="color:#f92672">=</span> Maildir
-<span style="color:#75715e"># where should the emails go?
-</span><span style="color:#75715e"># this local folder needs to exist
-</span><span style="color:#75715e"></span>localfolders <span style="color:#f92672">=</span> /home/a/mail/aishpant
+<span style="color:#75715e"># local repository settings</span>
+<span style="color:#f92672">[</span>Repository local-aishpant<span style="color:#f92672">]</span>
+<span style="color:#111">type</span> <span style="color:#f92672">=</span> Maildir
+<span style="color:#75715e"># where should the emails go?</span>
+<span style="color:#75715e"># this local folder needs to exist</span>
+<span style="color:#111">localfolders</span> <span style="color:#f92672">=</span> /home/a/mail/aishpant
 
-<span style="color:#75715e"># remote repository settings
-</span><span style="color:#75715e"></span><span style="color:#f92672">[</span>Repository remote-aishpant<span style="color:#f92672">]</span>
-type <span style="color:#f92672">=</span> Gmail
-<span style="color:#75715e"># Gmail specific username and password
-</span><span style="color:#75715e"></span>remoteuser <span style="color:#f92672">=</span> xxx@gmail.com
-remotepass <span style="color:#f92672">=</span> xxxpass
-sslcacertfile <span style="color:#f92672">=</span> /etc/ssl/certs/ca-certificates.crt
-<span style="color:#75715e"># synchronise only these remote folders
-</span><span style="color:#75715e"># I have three folders of interest
-</span><span style="color:#75715e"></span>folderfilter <span style="color:#f92672">=</span> lambda folder: folder in <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;INBOX&#39;</span>, <span style="color:#e6db74">&#39;LKML&#39;</span>, <span style="color:#e6db74">&#39;attrDoc&#39;</span><span style="color:#f92672">]</span></code></pre></div>
+<span style="color:#75715e"># remote repository settings</span>
+<span style="color:#f92672">[</span>Repository remote-aishpant<span style="color:#f92672">]</span>
+<span style="color:#111">type</span> <span style="color:#f92672">=</span> Gmail
+<span style="color:#75715e"># Gmail specific username and password</span>
+<span style="color:#111">remoteuser</span> <span style="color:#f92672">=</span> xxx@gmail.com
+<span style="color:#111">remotepass</span> <span style="color:#f92672">=</span> xxxpass
+<span style="color:#111">sslcacertfile</span> <span style="color:#f92672">=</span> /etc/ssl/certs/ca-certificates.crt
+<span style="color:#75715e"># synchronise only these remote folders</span>
+<span style="color:#75715e"># I have three folders of interest</span>
+<span style="color:#111">folderfilter</span> <span style="color:#f92672">=</span> lambda folder: folder in <span style="color:#f92672">[</span><span style="color:#d88200">&#39;INBOX&#39;</span>, <span style="color:#d88200">&#39;LKML&#39;</span>, <span style="color:#d88200">&#39;attrDoc&#39;</span><span style="color:#f92672">]</span></code></pre></div>
 <p>Then you can just run offlineimap to start fetching all your emails.</p>
 
 <h4 id="step-2">Step 2</h4>
@@ -173,29 +248,29 @@ sslcacertfile <span style="color:#f92672">=</span> /etc/ssl/certs/ca-certificate
 to send patches as the kernel community accepts only text based emails.</p>
 
 <p>~/.muttrc</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">## for sending mails
-</span><span style="color:#75715e"></span>set realname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Aishwarya Pant&#34;</span>
-set from <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#34;aishpant@gmail.com&#34;</span>
-set smtp_url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;smtps://xxx@gmail.com@smtp.gmail.com:465/&#34;</span>
-set smtp_pass <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxpass&#34;</span>
-set sendmail<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/bin/esmtp&#34;</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">## for sending mails</span>
+<span style="color:#111">set</span> <span style="color:#111">realname</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;Aishwarya Pant&#34;</span>
+<span style="color:#111">set</span> <span style="color:#111">from</span> <span style="color:#f92672">=</span>  <span style="color:#d88200">&#34;aishpant@gmail.com&#34;</span>
+<span style="color:#111">set</span> <span style="color:#111">smtp_url</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;smtps://xxx@gmail.com@smtp.gmail.com:465/&#34;</span>
+<span style="color:#111">set</span> <span style="color:#111">smtp_pass</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;xxxpass&#34;</span>
+<span style="color:#111">set</span> <span style="color:#111">sendmail</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;/usr/bin/esmtp&#34;</span>
 
-<span style="color:#75715e">## appearance
-</span><span style="color:#75715e"></span>set sort <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;threads&#39;</span>
-set sort_aux <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;reverse-last-date-received&#39;</span>
-set charset <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;utf-8&#34;</span>
+<span style="color:#75715e">## appearance</span>
+<span style="color:#111">set</span> <span style="color:#111">sort</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;threads&#39;</span>
+<span style="color:#111">set</span> <span style="color:#111">sort_aux</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;reverse-last-date-received&#39;</span>
+<span style="color:#111">set</span> <span style="color:#111">charset</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;utf-8&#34;</span>
 
-<span style="color:#75715e">## for reading emails, read from local
-</span><span style="color:#75715e"># needs to be consistent with offlineimap
-</span><span style="color:#75715e"></span>set mbox_type <span style="color:#f92672">=</span> Maildir
-set folder <span style="color:#f92672">=</span> /home/a/mail/aishpant
-<span style="color:#75715e"># folder in which to start mutt
-</span><span style="color:#75715e"></span>set spoolfile <span style="color:#f92672">=</span> +/INBOX/
-<span style="color:#75715e"># cache for even faster
-</span><span style="color:#75715e"></span>set header_cache <span style="color:#f92672">=</span> /home/a/mail/cache/
+<span style="color:#75715e">## for reading emails, read from local</span>
+<span style="color:#75715e"># needs to be consistent with offlineimap</span>
+<span style="color:#111">set</span> <span style="color:#111">mbox_type</span> <span style="color:#f92672">=</span> Maildir
+<span style="color:#111">set</span> <span style="color:#111">folder</span> <span style="color:#f92672">=</span> /home/a/mail/aishpant
+<span style="color:#75715e"># folder in which to start mutt</span>
+<span style="color:#111">set</span> <span style="color:#111">spoolfile</span> <span style="color:#f92672">=</span> +/INBOX/
+<span style="color:#75715e"># cache for even faster</span>
+<span style="color:#111">set</span> <span style="color:#111">header_cache</span> <span style="color:#f92672">=</span> /home/a/mail/cache/
 
-<span style="color:#75715e">## writing mail
-</span><span style="color:#75715e"></span>set editor <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vim&#34;</span></code></pre></div>
+<span style="color:#75715e">## writing mail</span>
+<span style="color:#111">set</span> <span style="color:#111">editor</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;vim&#34;</span></code></pre></div>
 <h4 id="step-3">Step 3</h4>
 
 <p>If you run offlineimap, it will sync emails only once. After that you will need
@@ -206,51 +281,51 @@ used the <a href="https://wiki.archlinux.org/index.php/Systemd/User" target="_bl
 timer to periodically sync emails.</p>
 
 <p>First, create two files - <code>offlineimap.service</code> and <code>offlineimap.timer</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">## offlineimap.service
-</span><span style="color:#75715e"></span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
-Description<span style="color:#f92672">=</span>Offlineimap Service <span style="color:#f92672">(</span>oneshot<span style="color:#f92672">)</span>
-Documentation<span style="color:#f92672">=</span>man:offlineimap<span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">## offlineimap.service</span>
+<span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+<span style="color:#111">Description</span><span style="color:#f92672">=</span>Offlineimap Service <span style="color:#f92672">(</span>oneshot<span style="color:#f92672">)</span>
+<span style="color:#111">Documentation</span><span style="color:#f92672">=</span>man:offlineimap<span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
 
 <span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
-<span style="color:#75715e"># execute the action and stop
-</span><span style="color:#75715e"></span>Type<span style="color:#f92672">=</span>oneshot
-ExecStart<span style="color:#f92672">=</span>/usr/bin/offlineimap -o -u basic
-<span style="color:#75715e"># give 120 seconds for offlineimap to gracefully stop before hard killing it
-</span><span style="color:#75715e"></span>TimeoutStopSec<span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>
+<span style="color:#75715e"># execute the action and stop</span>
+<span style="color:#111">Type</span><span style="color:#f92672">=</span>oneshot
+<span style="color:#111">ExecStart</span><span style="color:#f92672">=</span>/usr/bin/offlineimap -o -u basic
+<span style="color:#75715e"># give 120 seconds for offlineimap to gracefully stop before hard killing it</span>
+<span style="color:#111">TimeoutStopSec</span><span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>
 
 <span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
-WantedBy<span style="color:#f92672">=</span>mail.target</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">## offlineimap.timer
-</span><span style="color:#75715e"></span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
-Description<span style="color:#f92672">=</span>Offlineimap Query Timer
+<span style="color:#111">WantedBy</span><span style="color:#f92672">=</span>mail.target</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">## offlineimap.timer</span>
+<span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+<span style="color:#111">Description</span><span style="color:#f92672">=</span>Offlineimap Query Timer
 
 <span style="color:#f92672">[</span>Timer<span style="color:#f92672">]</span>
-<span style="color:#75715e"># start the service 2 minutes after a boot-up
-</span><span style="color:#75715e"></span>OnBootSec<span style="color:#f92672">=</span>2m
-<span style="color:#75715e"># the timer will run the service every 5 minutes
-</span><span style="color:#75715e"></span>OnUnitInactiveSec<span style="color:#f92672">=</span>5m
+<span style="color:#75715e"># start the service 2 minutes after a boot-up</span>
+<span style="color:#111">OnBootSec</span><span style="color:#f92672">=</span>2m
+<span style="color:#75715e"># the timer will run the service every 5 minutes</span>
+<span style="color:#111">OnUnitInactiveSec</span><span style="color:#f92672">=</span>5m
 
 <span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
-WantedBy<span style="color:#f92672">=</span>default.target</code></pre></div>
+<span style="color:#111">WantedBy</span><span style="color:#f92672">=</span>default.target</code></pre></div>
 <p>Put both files in the folder <code>/etc/systemd/user</code>. Now, to enable the service and
 the timer run :</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">$ systemctl --user enable offlineimap.service offlineimap.timer
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">$ systemctl --user <span style="color:#111">enable</span> offlineimap.service offlineimap.timer
 $ systemctl --user start offlineimap-oneshot.service</code></pre></div>
 <p>The service needs to be started once before the timer can kick in.</p>
 
 <p>You can check the status of the service using the <code>systemctl</code> command. (The
 <code>--user</code> flag has to be passed every time.)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">$ systemctl --user list-timers
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">$ systemctl --user list-timers
 NEXT                         LEFT          LAST                         PASSED       UNIT                      A
 Wed <span style="color:#ae81ff">2018</span>-01-10 <span style="color:#ae81ff">14</span>:06:50 IST  3min 50s left Wed <span style="color:#ae81ff">2018</span>-01-10 <span style="color:#ae81ff">14</span>:01:24 IST  1min 35s ago offlineimap-oneshot.timer o
 
 <span style="color:#ae81ff">1</span> timers listed.
-Pass --all to see loaded but inactive timers, too.</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl --user status offlineimap-oneshot
+Pass --all to see loaded but inactive timers, too.</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl --user status offlineimap-oneshot
 ● offlineimap-oneshot.service - Offlineimap Service <span style="color:#f92672">(</span>oneshot<span style="color:#f92672">)</span>
-   Loaded: loaded <span style="color:#f92672">(</span>/etc/systemd/user/offlineimap-oneshot.service; enabled; vendor preset: enabled<span style="color:#f92672">)</span>
-   Active: inactive <span style="color:#f92672">(</span>dead<span style="color:#f92672">)</span> since Wed <span style="color:#ae81ff">2018</span>-01-10 <span style="color:#ae81ff">14</span>:01:50 IST; 1min 1s ago
+   Loaded: loaded <span style="color:#f92672">(</span>/etc/systemd/user/offlineimap-oneshot.service<span style="color:#111">;</span> enabled<span style="color:#111">;</span> vendor preset: enabled<span style="color:#f92672">)</span>
+   Active: inactive <span style="color:#f92672">(</span>dead<span style="color:#f92672">)</span> since Wed <span style="color:#ae81ff">2018</span>-01-10 <span style="color:#ae81ff">14</span>:01:50 IST<span style="color:#111">;</span> 1min 1s ago
      Docs: man:offlineimap<span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
-  Process: <span style="color:#ae81ff">6552</span> ExecStart<span style="color:#f92672">=</span>/usr/bin/offlineimap -o -u basic <span style="color:#f92672">(</span>code<span style="color:#f92672">=</span>exited, status<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>/SUCCESS<span style="color:#f92672">)</span>
- Main PID: <span style="color:#ae81ff">6552</span> <span style="color:#f92672">(</span>code<span style="color:#f92672">=</span>exited, status<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>/SUCCESS<span style="color:#f92672">)</span>
+  Process: <span style="color:#ae81ff">6552</span> <span style="color:#111">ExecStart</span><span style="color:#f92672">=</span>/usr/bin/offlineimap -o -u basic <span style="color:#f92672">(</span><span style="color:#111">code</span><span style="color:#f92672">=</span>exited, <span style="color:#111">status</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>/SUCCESS<span style="color:#f92672">)</span>
+ Main PID: <span style="color:#ae81ff">6552</span> <span style="color:#f92672">(</span><span style="color:#111">code</span><span style="color:#f92672">=</span>exited, <span style="color:#111">status</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>/SUCCESS<span style="color:#f92672">)</span>
 
 Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:01:27 mordor offlineimap<span style="color:#f92672">[</span><span style="color:#ae81ff">6552</span><span style="color:#f92672">]</span>: Syncing INBOX: Gmail -&gt; Maildir
 Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:01:27 mordor offlineimap<span style="color:#f92672">[</span><span style="color:#ae81ff">6552</span><span style="color:#f92672">]</span>: Syncing attrDoc: Gmail -&gt; Maildir
@@ -260,7 +335,7 @@ Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:
 Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:01:46 mordor offlineimap<span style="color:#f92672">[</span><span style="color:#ae81ff">6552</span><span style="color:#f92672">]</span>: Copy message UID <span style="color:#ae81ff">217124</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span>/3<span style="color:#f92672">)</span> remote-aishpant:LKML -&gt; local-aishpant
 Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:01:46 mordor offlineimap<span style="color:#f92672">[</span><span style="color:#ae81ff">6552</span><span style="color:#f92672">]</span>: Copy message UID <span style="color:#ae81ff">217125</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span>/3<span style="color:#f92672">)</span> remote-aishpant:LKML -&gt; local-aishpant
 Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:01:49 mordor offlineimap<span style="color:#f92672">[</span><span style="color:#ae81ff">6552</span><span style="color:#f92672">]</span>: Copy message UID <span style="color:#ae81ff">217126</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">3</span>/3<span style="color:#f92672">)</span> remote-aishpant:LKML -&gt; local-aishpant
-Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:01:50 mordor offlineimap<span style="color:#f92672">[</span><span style="color:#ae81ff">6552</span><span style="color:#f92672">]</span>: *** Finished account <span style="color:#e6db74">&#39;aishpant&#39;</span> in <span style="color:#ae81ff">0</span>:25
+Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:01:50 mordor offlineimap<span style="color:#f92672">[</span><span style="color:#ae81ff">6552</span><span style="color:#f92672">]</span>: *** Finished account <span style="color:#d88200">&#39;aishpant&#39;</span> in <span style="color:#ae81ff">0</span>:25
 Jan <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">14</span>:01:50 mordor systemd<span style="color:#f92672">[</span><span style="color:#ae81ff">585</span><span style="color:#f92672">]</span>: Started Offlineimap Service <span style="color:#f92672">(</span>oneshot<span style="color:#f92672">)</span>.</code></pre></div>
 <h4 id="step-4">Step 4</h4>
 
@@ -313,27 +388,24 @@ the wiki has answers to every thing!</li>
 
 </div>
 
-    
-<footer class='entry-footer-container'>
-  <div class='entry-footer'>
-  <div class='tags'>
-  <span class='taxonomyTerm-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-</span>
-  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/mutt'>Mutt</a>, <a class='tag' href='/tags/offlineimap'>Offlineimap</a>, <a class='tag' href='/tags/lkml'>Lkml</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/mutt/'>Mutt</a>, <a class='tag' href='/tags/offlineimap/'>Offlineimap</a>, <a class='tag' href='/tags/lkml/'>Lkml</a></div>
 
   </div>
 </footer>
 
 
-  </article>
-  
-<nav class='entry-nav-container'>
-  <div class='entry-nav'><div class='prev-entry'>
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
       <a href='/blog/attribute-documentation/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
@@ -342,10 +414,10 @@ the wiki has answers to every thing!</li>
   
 </svg>
  Previous</span>
-        <span class='screen-reader'>Previous post: </span>attribute documentation : what, why, how?</a>
-    </div><div class='next-entry'>
+        <span class='screen-reader-text'>Previous post: </span>attribute documentation : what, why, how?</a>
+    </div><div class='next-entry sep-before'>
       <a href='/blog/outreachy-recap/'>
-        <span class='screen-reader'>Next post: </span>outreachy : closing notes<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+        <span class='screen-reader-text'>Next post: </span>outreachy : closing notes<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>
@@ -356,16 +428,16 @@ the wiki has answers to every thing!</li>
     </div></div>
 </nav>
 
-  
-</main>
 
-    <footer id='footer' class='footer-container'>
-      <div class='footer'>
-        <div class='social-menu-container'>
-  <nav aria-label='Social Menu'>
-    <ul class='social-menu'><li>
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
         <a href='https://github.com/aishpant' target='_blank' rel='noopener'>
-          <span class='screen-reader'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
   
@@ -373,7 +445,7 @@ the wiki has answers to every thing!</li>
 </a>
       </li><li>
         <a href='https://twitter.com/aishpant' target='_blank' rel='noopener'>
-          <span class='screen-reader'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
   
@@ -381,7 +453,7 @@ the wiki has answers to every thing!</li>
 </a>
       </li><li>
         <a href='mailto:aishpant@gmail.com' target='_blank' rel='noopener'>
-          <span class='screen-reader'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
   <polyline points="22,6 12,13 2,6"/>
@@ -390,16 +462,19 @@ the wiki has answers to every thing!</li>
 </a>
       </li></ul>
   </nav>
-</div>
-        <div class='copyright'>
-  <p>
-  </p>
+</section><div class='copyright'>
+  <p></p>
 </div>
 
-      </div>
-    </footer>
+        </div>
+      </footer>
 
-  </div><script src='/assets/js/main.5871befd.js'></script><script src='/js/custom.js'></script></body>
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.00df04b7.js'></script><script src='/js/custom.js'></script>
+
+</body>
 
 </html>
 

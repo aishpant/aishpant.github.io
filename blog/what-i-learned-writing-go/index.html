@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='I have been writing Go for about 6 months now at my new job. Coming from a Java world, it is a joy to write Go. Some may call the language boring, because it is easy to learn and easy to write. This is precisely what I love the most about Go. There usually isn&rsquo;t more than one way of achieving the same result.
+If you are able to work through the gotour, I believe you should be able to understand 99% of the open source Go code.'>
+<meta name='theme-color' content='#FFB6C1'>
+
+<meta property='og:title' content='✍️What I learned while writing Go • Aishwarya Pant&#39;s Blog'>
+<meta property='og:description' content='I have been writing Go for about 6 months now at my new job. Coming from a Java world, it is a joy to write Go. Some may call the language boring, because it is easy to learn and easy to write. This is precisely what I love the most about Go. There usually isn&rsquo;t more than one way of achieving the same result.
+If you are able to work through the gotour, I believe you should be able to understand 99% of the open source Go code.'>
+<meta property='og:url' content='https://aishpant.github.io/blog/what-i-learned-writing-go/'>
+<meta property='og:site_name' content='Aishwarya Pant&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='blog'><meta property='article:tag' content='golang'><meta property='article:tag' content='opinion'><meta property='article:published_time' content='2019-04-07T20:48:30&#43;01:00'/><meta property='article:modified_time' content='2019-04-07T20:48:30&#43;01:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@aishpant'>
+
+<meta name="generator" content="Hugo 0.53" />
+
+  <title>✍️What I learned while writing Go • Aishwarya Pant&#39;s Blog</title>
+  <link rel='canonical' href='https://aishpant.github.io/blog/what-i-learned-writing-go/'>
+  
+  
+  <link rel='icon' href='/images/me.png'>
+<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#FFB6C1;}
+</style>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-111558627-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+
+</head>
+<body class='page type-blog has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/me.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+     
+    </h2>
+    <div class='desc'>
+    Musings on books &amp; software
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud no-shuffle'><li>
+        <a href='/tags/book-review/' style='font-size:1.3333333333333333em'>Book Review</a>
+      </li><li>
+        <a href='/tags/documentation/' style='font-size:1.3333333333333333em'>Documentation</a>
+      </li><li>
+        <a href='/tags/golang/' style='font-size:1em'>Golang</a>
+      </li><li>
+        <a href='/tags/isaac-asimov/' style='font-size:1em'>Isaac Asimov</a>
+      </li><li>
+        <a href='/tags/linux/' style='font-size:1.3333333333333333em'>Linux</a>
+      </li><li>
+        <a href='/tags/lkml/' style='font-size:1em'>Lkml</a>
+      </li><li>
+        <a href='/tags/mutt/' style='font-size:1em'>Mutt</a>
+      </li><li>
+        <a href='/tags/offlineimap/' style='font-size:1em'>Offlineimap</a>
+      </li><li>
+        <a href='/tags/opinion/' style='font-size:1em'>Opinion</a>
+      </li><li>
+        <a href='/tags/outreachy/' style='font-size:1.6666666666666665em'>Outreachy</a>
+      </li><li>
+        <a href='/tags/science-fiction/' style='font-size:1em'>Science Fiction</a>
+      </li><li>
+        <a href='/tags/sysfs/' style='font-size:1.3333333333333333em'>Sysfs</a>
+      </li><li>
+        <a href='/tags/thoughts/' style='font-size:2em'>Thoughts</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/blog/'>blog</a></li><li><span>✍️What I learned while writing Go</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Aishwarya Pant&#39;s Blog</p><p class='desc site-desc'></p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>✍️What I learned while writing Go</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2019-04-07T20:48:30&#43;01:00'>Apr 07, 2019</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+5 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p>I have been writing Go for about 6 months now at my new job. Coming from a Java
+world, it is a joy to write Go. Some may call the language boring, because it is
+easy to learn and easy to write. This is precisely what I love the most about
+Go. There usually isn&rsquo;t more than one way of achieving the same result.</p>
+
+<p>If you are able to work through the <a href="https://tour.golang.org/welcome/1" target="_blank">gotour</a>,
+I believe you should be able to understand 99% of the open source Go code. There
+are no threads, no pointer arithmetic operations, no semi-colons, no
+inheritance, and well, no generics either (cough).</p>
+
+<p>The things I have learned are mostly things <em>I have found</em> interesting or
+surprising. These are biased opinions, and more like notes to self.</p>
+
+<h3 id="1-encapsulation-in-go">1. Encapsulation in Go</h3>
+
+<p><a href="https://golang.org/doc/effective_go.html#names" target="_blank">Names</a> are important in Go.
+Naming of an identifier decides its visibility (eg. like <code>private</code> or <code>public</code>
+in Java). An identifier is exported (or <code>public</code>) if the first character of a
+name is in upper case.</p>
+
+<p>Confusingly, if you use <a href="https://github.com/golang/lint" target="_blank"><code>golint</code></a>, you might
+encounter this warning-</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75af00">exported</span> <span style="color:#00a8c8">func</span> <span style="color:#75af00">NewMagicPuppy</span> <span style="color:#75af00">returns</span> <span style="color:#75af00">unexported</span> <span style="color:#00a8c8">type</span> <span style="color:#f92672">*</span><span style="color:#75af00">magicPuppy</span><span style="color:#111">,</span> <span style="color:#75af00">which</span> <span style="color:#75af00">can</span> <span style="color:#75af00">be</span>
+<span style="color:#75af00">annoying</span> <span style="color:#75af00">to</span> <span style="color:#75af00">use</span> <span style="color:#111">(</span><span style="color:#75af00">golint</span><span style="color:#111">)</span></code></pre></div>
+<p>I disagree with this linter warning. It&rsquo;s <strong>totally fine</strong> to return an
+unexported type from an exported type. This is a common pattern of enforcing
+encapsulation. This makes it impossible for someone to create a type like
+<code>magicPuppy</code> manually and miss some of the set-up steps, and it becomes the
+responsibility of the function <code>NewMagicPuppy</code> to create a correctly formed
+magic puppy.</p>
+
+<p>For eg. consider the hypothetical puppy package</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#75af00">puppy</span>
+    
+<span style="color:#f92672">import</span> <span style="color:#d88200">&#34;fmt&#34;</span>
+    
+<span style="color:#75715e">// an unexported type can contain exported fields
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">type</span> <span style="color:#75af00">magicPuppy</span> <span style="color:#00a8c8">struct</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// Name is exported, can be changed 
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">Name</span> <span style="color:#00a8c8">string</span>
+    <span style="color:#75715e">// breed is unexported, it cannot be changed
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">breed</span> <span style="color:#00a8c8">string</span>
+<span style="color:#111">}</span>
+    
+<span style="color:#00a8c8">func</span> <span style="color:#111">(</span><span style="color:#75af00">p</span> <span style="color:#f92672">*</span><span style="color:#75af00">magicPuppy</span><span style="color:#111">)</span> <span style="color:#75af00">secretMagicBark</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Println</span><span style="color:#111">(</span><span style="color:#d88200">&#34;meow&#34;</span><span style="color:#111">)</span>
+<span style="color:#111">}</span>
+    
+<span style="color:#00a8c8">func</span> <span style="color:#111">(</span><span style="color:#75af00">p</span> <span style="color:#f92672">*</span><span style="color:#75af00">magicPuppy</span><span style="color:#111">)</span> <span style="color:#75af00">Bark</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">secretMagicBark</span><span style="color:#111">()</span>
+    <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Println</span><span style="color:#111">(</span><span style="color:#d88200">&#34;woof boink boink 🐶&#34;</span><span style="color:#111">)</span>
+<span style="color:#111">}</span>
+    
+<span style="color:#00a8c8">func</span> <span style="color:#75af00">NewMagicPuppy</span><span style="color:#111">()</span> <span style="color:#f92672">*</span><span style="color:#75af00">magicPuppy</span> <span style="color:#111">{</span>
+     <span style="color:#00a8c8">return</span> <span style="color:#f92672">&amp;</span><span style="color:#75af00">magicPuppy</span><span style="color:#111">{</span><span style="color:#d88200">&#34;sparkles ✨&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Westie&#34;</span><span style="color:#111">}</span>
+<span style="color:#111">}</span>
+    
+<span style="color:#00a8c8">func</span> <span style="color:#111">(</span><span style="color:#75af00">p</span> <span style="color:#f92672">*</span><span style="color:#75af00">magicPuppy</span><span style="color:#111">)</span> <span style="color:#75af00">Description</span><span style="color:#111">()</span> <span style="color:#00a8c8">string</span> <span style="color:#111">{</span>
+     <span style="color:#00a8c8">return</span> <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Sprintf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;I am a %s and my magic puppy name is %s&#34;</span><span style="color:#111">,</span>
+         <span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">breed</span><span style="color:#111">,</span> <span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">Name</span><span style="color:#111">)</span>
+<span style="color:#111">}</span></code></pre></div>
+<p>And it&rsquo;s corresponding main function-</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#75af00">main</span>
+    
+<span style="color:#f92672">import</span> <span style="color:#111">(</span>
+    <span style="color:#d88200">&#34;fmt&#34;</span>
+    <span style="color:#d88200">&#34;puppy&#34;</span>
+<span style="color:#111">)</span>
+    
+<span style="color:#00a8c8">func</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">var</span> <span style="color:#75af00">p</span> <span style="color:#f92672">*</span><span style="color:#75af00">puppy</span><span style="color:#111">.</span><span style="color:#75af00">magicpuppy</span>  <span style="color:#75715e">// compilation error
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">p</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">puppy</span><span style="color:#111">.</span><span style="color:#75af00">NewMagicPuppy</span><span style="color:#111">()</span>
+    <span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">Bark</span><span style="color:#111">()</span>
+    <span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">secretMagicBark</span><span style="color:#111">()</span>  <span style="color:#75715e">// compilation error
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Println</span><span style="color:#111">(</span><span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">breed</span><span style="color:#111">)</span> <span style="color:#75715e">// compilation error
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Println</span><span style="color:#111">(</span><span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">Name</span><span style="color:#111">)</span> <span style="color:#75715e">// sparkles ✨
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">Name</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;🦄💖&#34;</span>
+    <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Println</span><span style="color:#111">(</span><span style="color:#75af00">p</span><span style="color:#111">.</span><span style="color:#75af00">Description</span><span style="color:#111">())</span> <span style="color:#75715e">// I am a Westie and my magic puppy name is 🦄💖
+</span><span style="color:#75715e"></span><span style="color:#111">}</span></code></pre></div>
+<h3 id="2-context-background">2. context.Background()</h3>
+
+<p>Do not create a new <code>context.Background()</code> unless you want it to live for the
+lifetime of your programme. If you don&rsquo;t watch out for its usage, you might
+encounter memory leaks.</p>
+
+<p>From the <a href="https://blog.golang.org/context" target="_blank">documentation</a>-</p>
+
+<pre><code>// Background returns an empty Context. It is never canceled, has no deadline,
+// and has no values. Background is typically used in main, init, and tests,
+// and as the top-level Context for incoming requests.
+</code></pre>
+
+<p>You would be better off using <code>WithCancel</code> or <code>WithTimeout</code>.</p>
+
+<p>Eg.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#75715e">// this is very bad!! Don&#39;t ignore the context cancellation
+</span><span style="color:#75715e"></span><span style="color:#75af00">ctx</span><span style="color:#111">,</span> <span style="color:#75af00">_</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">context</span><span style="color:#111">.</span><span style="color:#75af00">WithCancel</span><span style="color:#111">(</span><span style="color:#75af00">parentCtx</span><span style="color:#111">)</span>
+    
+<span style="color:#75af00">ctx</span><span style="color:#111">,</span> <span style="color:#75af00">cancel</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">context</span><span style="color:#111">.</span><span style="color:#75af00">WithCancel</span><span style="color:#111">(</span><span style="color:#75af00">parentCtx</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">defer</span> <span style="color:#75af00">cancel</span><span style="color:#111">()</span>
+<span style="color:#75715e">// do some work
+</span><span style="color:#75715e"></span>    
+<span style="color:#75715e">// you shouldn&#39;t wait for timeout, cancel immediately after work is complete
+</span><span style="color:#75715e"></span><span style="color:#75af00">ctx</span><span style="color:#111">,</span> <span style="color:#75af00">cancel</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">context</span><span style="color:#111">.</span><span style="color:#75af00">WithTimeout</span><span style="color:#111">(</span><span style="color:#75af00">parentCtx</span><span style="color:#111">,</span> <span style="color:#75af00">time</span><span style="color:#111">.</span><span style="color:#75af00">Minute</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">defer</span> <span style="color:#75af00">cancel</span><span style="color:#111">()</span>
+<span style="color:#f92672">//</span> <span style="color:#75af00">do</span> <span style="color:#75af00">some</span> <span style="color:#75af00">work</span></code></pre></div>
+<h3 id="3-errors-as-values">3. Errors as values</h3>
+
+<p>I find Rob Pike&rsquo;s blog on <a href="https://blog.golang.org/errors-are-values" target="_blank">error
+handling</a> very interesting. At the
+same time, it frustrates me because now there are multiple accepted ways of
+error handling.</p>
+
+<p>For eg, this is the common pattern you would see in a Go codebase-</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#75715e">// daily tasks for the magic puppy
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">Train</span><span style="color:#111">();</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
+<span style="color:#111">}</span>
+<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">Walk</span><span style="color:#111">();</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+     <span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
+<span style="color:#111">}</span>
+<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">Feed</span><span style="color:#111">();</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+     <span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
+<span style="color:#111">}</span>
+
+<span style="color:#75715e">// Train is an example magic puppy training implmentation
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">func</span> <span style="color:#111">(</span><span style="color:#75af00">p</span> <span style="color:#f92672">*</span><span style="color:#75af00">magicPuppy</span><span style="color:#111">)</span> <span style="color:#75af00">Train</span><span style="color:#111">()</span> <span style="color:#00a8c8">error</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">isHungry</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">New</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Magic puppy 😿cannot train on a hungry stomach!&#34;</span>
+    <span style="color:#111">}</span>
+    <span style="color:#75715e">// train
+</span><span style="color:#75715e"></span><span style="color:#111">}</span></code></pre></div>
+<p>Most functions return an error type as the last returned value. But sometimes,
+you can be caught off-guard if an operation does not return an error. With the
+&ldquo;error as value&rdquo; pattern, the error is abstracted away while you finish doing a
+series of operations, and then make the error check later.</p>
+
+<p>For eg.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#75715e">// finish doing the series of tasks first, the next sequence of tasks
+</span><span style="color:#75715e">// become a no-op when the first failure is encountered
+</span><span style="color:#75715e"></span><span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">Train</span><span style="color:#111">()</span>
+<span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">Walk</span><span style="color:#111">()</span>
+<span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">Feed</span><span style="color:#111">()</span>
+
+<span style="color:#00a8c8">if</span> <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">err</span>
+<span style="color:#111">}</span>
+    
+<span style="color:#00a8c8">func</span> <span style="color:#111">(</span><span style="color:#75af00">p</span> <span style="color:#f92672">*</span><span style="color:#75af00">magicPuppy</span><span style="color:#111">)</span> <span style="color:#75af00">Train</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// no-op if there was an error while executing daily tasks
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">if</span> <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+        <span style="color:#00a8c8">return</span>
+    <span style="color:#111">}</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">isHungry</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+        <span style="color:#75715e">// the first instance of the error is recorded
+</span><span style="color:#75715e"></span>        <span style="color:#75af00">pup</span><span style="color:#111">.</span><span style="color:#75af00">err</span> <span style="color:#111">=</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">New</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Magic puppy 😿cannot train on a hungry stomach!&#34;</span>
+    <span style="color:#111">}</span>
+    <span style="color:#75715e">// train
+</span><span style="color:#75715e"></span><span style="color:#111">}</span>
+
+<span style="color:#f92672">//</span> <span style="color:#f92672">...</span> <span style="color:#75af00">similar</span> <span style="color:#75af00">implementations</span> <span style="color:#00a8c8">for</span> <span style="color:#75af00">functions</span> <span style="color:#75af00">Walk</span> <span style="color:#75af00">and</span> <span style="color:#75af00">Feed</span></code></pre></div>
+<p>I have been caught by this once when I forgot to check the error value 🙈</p>
+
+<p>Honestly, I prefer the former error check pattern to the latter, and there&rsquo;s a
+couple of reasons for it:</p>
+
+<ul>
+<li>The second approach causes a side-effect by writing to the error value. The
+implementation of <code>Train</code>, <code>Walk</code>, and <code>Feed</code> is now less obvious. You have to
+read their implementation to make the correct error check. (Or atleast I had
+to, when I missed it.)</li>
+<li>How does one decide what is the best time to decide that the sequence of
+operations is done, so that now you should error check?</li>
+</ul>
+
+<p>Well, these three have been my small annoyances and gotchas. The focus of <a href="https://github.com/golang/go/wiki/Go2" target="_blank">Go
+2</a> seems to be on error handling, error
+values and generics. I can&rsquo;t wait to find out what I&rsquo;ll learn in the next 6
+months 😃</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/golang/'>Golang</a>, <a class='tag' href='/tags/opinion/'>Opinion</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/blog/outreachy-recap/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>outreachy : closing notes</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/aishpant' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/aishpant' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:aishpant@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p></p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.00df04b7.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

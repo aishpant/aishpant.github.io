@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Opinion on Aishwarya Pant&#39;s Blog</title>
+    <link>https://aishpant.github.io/tags/opinion/</link>
+    <description>Recent content in Opinion on Aishwarya Pant&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Apr 2019 20:48:30 +0100</lastBuildDate>
+    
+	<atom:link href="https://aishpant.github.io/tags/opinion/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>✍️What I learned while writing Go</title>
+      <link>https://aishpant.github.io/blog/what-i-learned-writing-go/</link>
+      <pubDate>Sun, 07 Apr 2019 20:48:30 +0100</pubDate>
+      
+      <guid>https://aishpant.github.io/blog/what-i-learned-writing-go/</guid>
+      <description>I have been writing Go for about 6 months now at my new job. Coming from a Java world, it is a joy to write Go. Some may call the language boring, because it is easy to learn and easy to write. This is precisely what I love the most about Go. There usually isn&amp;rsquo;t more than one way of achieving the same result.
+If you are able to work through the gotour, I believe you should be able to understand 99% of the open source Go code.</description>
+    </item>
+    
+  </channel>
+</rss>
